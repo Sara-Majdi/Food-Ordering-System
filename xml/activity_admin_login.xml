@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".adminLogin">
+
+    <include layout="@layout/app_header"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="63dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/admin_email"
+            android:layout_marginTop="150dp"
+            android:hint="Email"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/admin_password"
+            android:layout_below="@+id/admin_email"
+            android:hint="Password"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/btn_admin_login"
+            android:text="Login"
+            android:background="@drawable/custom_button"
+            android:layout_below="@+id/admin_password"
+            android:onClick="goLogin"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/btn_admin_register"
+            android:text="Register"
+            android:background="@drawable/custom_button"
+            android:layout_below="@+id/btn_admin_login"
+            android:layout_marginTop="10dp"
+            android:onClick="goRegister"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
