@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <include layout="@layout/app_header"></include>
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginTop="63dp">
+
+    <EditText
+        android:id="@+id/admin_first_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="15dp"
+        android:hint="First Name"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" />
+
+    <EditText
+        android:id="@+id/admin_last_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/admin_first_name"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="15dp"
+        android:hint="Last Name"
+        android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" />
+
+    <EditText
+        android:id="@+id/admin_email"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/admin_last_name"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="15dp"
+        android:hint="Email" />
+
+    <EditText
+        android:id="@+id/admin_password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/admin_email"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="15dp"
+        android:hint="Password" />
+
+    <EditText
+        android:id="@+id/admin_address"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/admin_password"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="15dp"
+        android:hint="Address" />
+
+    <Button
+        android:id="@+id/btn_admin_register"
+        android:background="@drawable/custom_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/admin_address"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="106dp"
+        android:onClick="goRegister"
+        android:text="Register"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_login_register"
+        android:background="@drawable/custom_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/btn_admin_register"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="106dp"
+        android:onClick="goLogin"
+        android:text="Login"
+        android:textSize="20sp" />
+
+
+  </RelativeLayout>
+
+</RelativeLayout>
