@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/homeFoodImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="400dp"
+        app:srcCompat="@drawable/foodhome" />
+
+    <TextView
+        android:id="@+id/AboutUsText"
+        android:layout_width="204dp"
+        android:layout_height="70dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="292dp"
+        android:text="@string/western_delight_restaurant_in_penang"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/DelightText"
+        android:layout_width="371dp"
+        android:layout_height="188dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="85dp"
+        android:justificationMode="inter_word"
+        android:text="@string/with_over_15_years_of_experience_is_a_great_place_for_western_lovers_we_serve_the_best_quality_western_foods_from_our_award_winning_master_chef_our_dishes_are_made_using_fresh_local_produce_and_ingredients_our_customer_service_is_second_to_none_and_we_strive_to_maintain_a_very_high_standard"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="91dp"
+        android:layout_marginBottom="662dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/register"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/btnLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="663dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="@string/log_in"
+        android:textColor="@color/black"
+        android:textSize="13sp" />
+
+</RelativeLayout>
