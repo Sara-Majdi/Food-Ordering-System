@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/foodPic"/>
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:id="@+id/foodName"
+        android:layout_toRightOf="@+id/foodPic"
+        android:text="Food Name"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="13dp"/>
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:id="@+id/foodDesc"
+        android:layout_toRightOf="@id/foodPic"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/foodName"
+        android:text="Food Desc"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:id="@+id/update"
+        android:layout_toRightOf="@+id/foodPic"
+        android:layout_marginTop="95dp"
+        android:layout_marginLeft="30dp"
+        android:text="Update"
+        android:background="@drawable/custom_button"/>
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:id="@+id/delete"
+        android:layout_toRightOf="@+id/update"
+        android:layout_marginTop="95dp"
+        android:layout_marginLeft="10dp"
+        android:text="Delete"
+        android:background="@drawable/custom_button"/>
+
+</RelativeLayout>
