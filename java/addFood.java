@@ -5,11 +5,9 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,19 +28,19 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-public class adminRegister extends AppCompatActivity {
+public class addFood extends AppCompatActivity {
 
-    EditText adminFirstName, adminLastName, adminEmail, adminPassword, adminPoints;
+    EditText foodName, foodDesc;
     DatabaseReference reference;
     private StorageReference storageReference;
-    ImageView adminPicture;
+    ImageView foodPicture;
     String imageUrl;
     Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_register);
+        setContentView(R.layout.activity_add_food);
 
         ImageView backBtn = (ImageView) findViewById(R.id.back_button); //onClick usage for back button (line 26-31)
         ImageView menuBtn = (ImageView) findViewById(R.id.menu_button); //onClick usage for menu button (line 33-38)
@@ -51,32 +49,17 @@ public class adminRegister extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(adminRegister.this, adminLogin.class);
+                Intent intent = new Intent(addFood.this, crudMenu.class);
                 startActivity(intent);
             }
         });
 
-        menuBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(adminRegister.this, "Soon come", Toast.LENGTH_SHORT).show();
-            }
-        });
+        foodName = findViewById(R.id.food_name);
+        foodDesc = findViewById(R.id.food_desc);
+        foodPicture = findViewById(R.id.food_picture);
+        reference = FirebaseDatabase.getInstance().getReference().child("menu");
 
-        pageTitle.setText("Register");
-
-        adminFirstName = findViewById(R.id.admin_first_name);
-        adminLastName = findViewById(R.id.admin_last_name);
-        adminEmail = findViewById(R.id.admin_email);
-        adminPassword = findViewById(R.id.admin_password);
-        adminPoints = findViewById(R.id.admin_points);
-        adminPicture = findViewById(R.id.admin_picture);
-        reference = FirebaseDatabase.getInstance().getReference().child("admin");
-
-        Button btnRegister = (Button) findViewById(R.id.btn_admin_register);
-        Button btnLogin = (Button) findViewById(R.id.btn_admin_login);
-
-
+        Button confirmAdd = (Button) findViewById(R.id.confirmAdd);
 
         ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
                 new ActivityResultContracts.StartActivityForResult(),
@@ -86,15 +69,15 @@ public class adminRegister extends AppCompatActivity {
                         if (result.getResultCode() == Activity.RESULT_OK){
                             Intent data = result.getData();
                             uri = data.getData();
-                            adminPicture.setImageURI(uri);
+                            foodPicture.setImageURI(uri);
                         }else {
-                            Toast.makeText(adminRegister.this, "No Image", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(addFood.this, "No Image", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
         );
 
-        adminPicture.setOnClickListener(new View.OnClickListener() {
+        foodPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent photoPicker = new Intent(Intent.ACTION_PICK);
@@ -103,24 +86,18 @@ public class adminRegister extends AppCompatActivity {
             }
         });
 
-        btnRegister.setOnClickListener(new View.OnClickListener() {
+        confirmAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveData();
             }
         });
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(adminRegister.this, adminLogin.class);
-                startActivity(intent);
-            }
-        });
     }
+
     public void saveData(){
 
-        storageReference = FirebaseStorage.getInstance().getReference().child("uploads")
+        storageReference = FirebaseStorage.getInstance().getReference().child("uploadsMenu")
                 .child(uri.getLastPathSegment());
 
         storageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -140,30 +117,29 @@ public class adminRegister extends AppCompatActivity {
         });
 
     }
+
     public void uploadData() {
-        String fname = adminFirstName.getText().toString();
-        String lname = adminLastName.getText().toString();
-        String email = adminEmail.getText().toString();
-        String password = adminPassword.getText().toString();
-        String points = adminPoints.getText().toString();
+        String foodname = foodName.getText().toString();
+        String fooddesc = foodDesc.getText().toString();
 
-        AdminRegisterHelperClass adminRegisterHelperClass = new AdminRegisterHelperClass(fname, lname, email, password, points, imageUrl);
+        AddFoodHelperClass addFoodHelperClass = new AddFoodHelperClass(foodname, fooddesc, imageUrl);
 
-        FirebaseDatabase.getInstance().getReference("admin").child(fname)
-                .setValue(adminRegisterHelperClass).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance().getReference("menu").child(foodname)
+                .setValue(addFoodHelperClass).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Toast.makeText(adminRegister.this, "Saved", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent (adminRegister.this, adminLogin.class);
+                            Toast.makeText(addFood.this, "Saved", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent (addFood.this, crudMenu.class);
                             startActivity(intent);
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(adminRegister.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(addFood.this, e.getMessage().toString(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
+
 }

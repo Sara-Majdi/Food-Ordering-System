@@ -33,8 +33,7 @@
             android:id="@+id/btn_admin_login"
             android:text="Login"
             android:background="@drawable/custom_button"
-            android:layout_below="@+id/admin_password"
-            android:onClick="goLogin"/>
+            android:layout_below="@+id/admin_password"/>
 
         <Button
             android:layout_width="match_parent"
@@ -46,6 +45,35 @@
             android:layout_marginTop="10dp"
             android:onClick="goRegister"/>
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/viewalladmin"
+            android:layout_below="@+id/btn_admin_register"
+            android:background="@drawable/custom_button"
+            android:text="View Admins"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/addcredit"
+            android:layout_below="@+id/viewalladmin"
+            android:background="@drawable/custom_button"
+            android:text="Add Credit"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/viewMenu"
+            android:layout_below="@+id/addcredit"
+            android:background="@drawable/custom_button"
+            android:text="View Menu"
+            android:layout_marginTop="10dp"/>
+
     </RelativeLayout>
+
+
 
 </RelativeLayout>
