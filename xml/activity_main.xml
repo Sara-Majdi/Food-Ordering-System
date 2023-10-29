@@ -1,75 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawer"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/homeFoodImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="400dp"
-        app:srcCompat="@drawable/foodhome" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/AboutUsText"
-        android:layout_width="204dp"
-        android:layout_height="70dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="56dp"
-        android:layout_marginEnd="151dp"
-        android:layout_marginBottom="292dp"
-        android:text="@string/western_delight_restaurant_in_penang"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        <include layout="@layout/app_header"/>
 
-    <TextView
-        android:id="@+id/DelightText"
-        android:layout_width="371dp"
-        android:layout_height="188dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="85dp"
-        android:justificationMode="inter_word"
-        android:text="@string/with_over_15_years_of_experience_is_a_great_place_for_western_lovers_we_serve_the_best_quality_western_foods_from_our_award_winning_master_chef_our_dishes_are_made_using_fresh_local_produce_and_ingredients_our_customer_service_is_second_to_none_and_we_strive_to_maintain_a_very_high_standard"
-        android:textSize="16sp" />
+        <ImageView
+            android:id="@+id/homeFoodImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="400dp"
+            app:srcCompat="@drawable/foodhome" />
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="91dp"
-        android:layout_marginBottom="662dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:text="@string/register"
-        android:textColor="@color/black"
-        android:textSize="13sp" />
+        <TextView
+            android:id="@+id/AboutUsText"
+            android:layout_width="226dp"
+            android:layout_height="80dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="51dp"
+            android:layout_marginEnd="133dp"
+            android:layout_marginBottom="292dp"
+            android:text="western delight restaurant in penang"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnLogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="663dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:text="@string/log_in"
-        android:textColor="@color/black"
-        android:textSize="13sp" />
+        <TextView
+            android:id="@+id/DelightText"
+            android:layout_width="wrap_content"
+            android:layout_height="219dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="54dp"
+            android:justificationMode="inter_word"
+            android:text="With over 15 years of experience, (    )is a great place for western lovers. We serve the best quality western foods from our award-winning master chef. Our dishes are made using fresh local produce and ingredients. Our customer service is second to none and we strive to maintain a very high standard."
+            android:textSize="20sp" />
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="99dp"
+            android:layout_marginBottom="617dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/register"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnLogIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="617dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/log_in"
+            android:textColor="@color/black"
+            android:textSize="13sp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_gravity="start">
+
+        <include layout="@layout/main_navigation_drawer"/>
+
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
