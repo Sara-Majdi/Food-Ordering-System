@@ -6,22 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="150dp"
-        android:layout_marginEnd="150dp"
-        android:layout_marginBottom="611dp"
-        android:text="@string/log_in"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include layout="@layout/app_header" />
 
     <TextView
         android:id="@+id/EmailText"
@@ -52,7 +37,7 @@
         tools:ignore="DuplicateIds,HardcodedText" />
 
     <EditText
-        android:id="@+id/EmailEdit"
+        android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
@@ -65,13 +50,13 @@
         android:background="@drawable/custom_input"
         android:ems="10"
         android:hint="@string/enter_your_email"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         tools:ignore="TextFields" />
 
     <EditText
-        android:id="@+id/PasswordEdit"
+        android:id="@+id/password"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
@@ -84,10 +69,16 @@
         android:background="@drawable/custom_input"
         android:ems="10"
         android:hint="@string/enter_your_password"
-        android:inputType="text"
+        android:inputType="textPassword"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         tools:ignore="TextFields" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnLogIn"
@@ -100,5 +91,27 @@
         android:layout_marginEnd="150dp"
         android:layout_marginBottom="241dp"
         android:text="Log In" />
+
+    <TextView
+        android:id="@+id/btnRegisterNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="200dp"
+        android:text="@string/register_now"
+        android:textSize="13sp" />
+
+    <TextView
+        android:id="@+id/textDontHaveAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="186dp"
+        android:layout_marginBottom="200dp"
+        android:text="@string/dont_have_an_account1"
+        android:textSize="13sp" />
 
 </RelativeLayout>
