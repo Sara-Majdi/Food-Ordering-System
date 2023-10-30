@@ -1,0 +1,84 @@
+package com.example.darpafoodordering;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnRegister = (Button) findViewById(R.id.btnRegister);
+
+
+    DrawerLayout drawerLayout;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+
+        // page title
+        TextView pageTitle = (TextView) findViewById(R.id.page_title);
+        pageTitle.setText("Homepage");
+
+        drawerLayout = findViewById(R.id.drawer);
+    }
+
+
+    public void ClickMenu(View view) {
+        openDrawer(drawerLayout);
+    }
+
+
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void ClickLogo(View view) {
+        closeDrawer(drawerLayout);
+    }
+
+    public static void closeDrawer(DrawerLayout drawerLayout) {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+
+
+    public void ClickHome(View view) {
+        recreate();
+    }
+
+    public void ClickShop(View view) {
+        redirectActivity(this, login.class);
+    }
+
+    public static void redirectActivity(Activity activity, Class Class) {
+        Intent intent = new Intent(activity, Class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
+
+
+    }
+    // when user press register button on the home page, will bring user to the register page
+    public void register(View view) {
+        Intent intent = new Intent (this, register.class);
+        startActivity(intent);
+    }
+}
