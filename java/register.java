@@ -82,8 +82,9 @@ public class register extends AppCompatActivity {
                             else {
 
                                 // sending data to firebase realtime database
-                                // using email address different identity of every user
+                                // using Phone Number to identity every user
                                 databaseReference.child("users").child(textPhonetic).child("name").setValue(textPersonName);
+                                databaseReference.child("users").child(textPhonetic).child("phone").setValue(textPhonetic);
                                 databaseReference.child("users").child(textPhonetic).child("email").setValue(textEmailAddress);
                                 databaseReference.child("users").child(textPhonetic).child("password").setValue(textPassword);
 
@@ -122,9 +123,11 @@ public class register extends AppCompatActivity {
 
 
 
+
     public static void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
     }
+
 
     public void ClickLogo(View view) {
         closeDrawer(drawerLayout);
@@ -137,14 +140,19 @@ public class register extends AppCompatActivity {
     }
 
 
-    // inside drawer page press home buttton will bring user to homepage
-    public void ClickHome(View view) {
-        redirectActivity(this, login.class);
-    }
+    // when user click Register in the navigation menu, it we recreate the same Register Page
+    public void ClickRegister(View view) {recreate();}
 
-    public void ClickShop(View view) {
-        redirectActivity(this, login.class);
-    }
+    // when user click Home in the navigation menu, it will direct user to Home Page from Register Page
+    public void ClickHome(View view) { redirectActivity(this, MainActivity.class);}
+
+    // when user click Login in the navigation menu, it will direct user to Login Page from Register Page
+    public void ClickLogin(View view) { redirectActivity(this, login.class); }
+
+
+
+
+
 
     public static void redirectActivity(Activity activity, Class Class) {
         Intent intent = new Intent(activity, Class);
@@ -158,5 +166,10 @@ public class register extends AppCompatActivity {
         closeDrawer(drawerLayout);
 
 
+    }
+
+    // user press "Already Have An Account", it will direct user to Login Page
+    public void clickToLogIn (View view) {Intent intent = new Intent(register.this, login.class);
+    startActivity(intent);
     }
 }
