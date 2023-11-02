@@ -13,8 +13,6 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnRegister = (Button) findViewById(R.id.btnRegister);
-
 
     DrawerLayout drawerLayout;
 
@@ -38,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     public static void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
     }
@@ -54,12 +51,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    // when user click home in the navigation menu, it we recreate the same page
     public void ClickHome(View view) {
         recreate();
     }
 
-    public void ClickShop(View view) {
+
+    // when user click Register in the navigation menu, it will direct user to Register page
+    public void ClickRegister(View view) { redirectActivity(this, register.class);}
+
+
+    // when user click Login in the navigation menu, it will direct user to Login page
+    public void ClickLogin(View view) {
         redirectActivity(this, login.class);
     }
 
@@ -76,9 +79,18 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-    // when user press register button on the home page, will bring user to the register page
+    // when user press Register button on the home page, will bring user to the Register page
     public void register(View view) {
         Intent intent = new Intent (this, register.class);
         startActivity(intent);
     }
+
+    // when user press Login button on the home page, will bring user to the Login page
+    public void login(View view) {
+        Intent intent = new Intent (this, login.class);
+        startActivity(intent);
+    }
 }
+
+
+
