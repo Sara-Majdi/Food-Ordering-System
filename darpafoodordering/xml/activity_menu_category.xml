@@ -7,7 +7,7 @@
     android:orientation="vertical"
     tools:context=".MenuCategoryActivity">
 
-    <include layout="@layout/search_app_header"/>
+    <include layout="@layout/app_header"/>
 
     <Button
         android:id="@+id/foodCategoryButton"
@@ -19,12 +19,6 @@
         android:id="@+id/drinkCategoryButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Drinks" />
-
-    <Button
-        android:id="@+id/dessertCategoryButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Desserts" />
+        android:text="Drink" />
 
 </LinearLayout>
