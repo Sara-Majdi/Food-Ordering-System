@@ -4,38 +4,43 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.darpafoodordering.MenuActivity;
 import com.example.darpafoodordering.R;
 
 public class MenuCategoryActivity extends AppCompatActivity {
 
+    private Button foodButton;
+    private Button drinksButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_category);
 
-        Button foodCategoryButton = findViewById(R.id.foodCategoryButton);
-        Button drinkCategoryButton = findViewById(R.id.drinkCategoryButton);
+        foodButton = findViewById(R.id.foodCategoryButton);
+        drinksButton = findViewById(R.id.drinkCategoryButton);
 
-        foodCategoryButton.setOnClickListener(new View.OnClickListener() {
+        //sets the page header name during on create
+        TextView pageTitle = (TextView) findViewById(R.id.page_title);
+        pageTitle.setText("Choose a Category");
+
+
+        foodButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                navigateToMenuActivity("Food");
+            public void onClick(View view){
+                Intent intent = new Intent(MenuCategoryActivity.this, FoodCategoryActivity.class);
+                startActivity(intent);
             }
         });
 
-        drinkCategoryButton.setOnClickListener(new View.OnClickListener() {
+        drinksButton.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
-                navigateToMenuActivity("Drink");
+            public void onClick(View view){
+                Intent intent = new Intent(MenuCategoryActivity.this, DrinkCategoryActivity.class);
+                startActivity(intent);
             }
         });
-    }
-
-    private void navigateToMenuActivity(String category) {
-        Intent intent = new Intent(MenuCategoryActivity.this, MenuActivity.class);
-        intent.putExtra("category", category);
-        startActivity(intent);
     }
 }
