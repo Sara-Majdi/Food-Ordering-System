@@ -39,6 +39,7 @@ public class BurgerMenu extends AppCompatActivity {
         //sets the page header name during on create
         TextView pageTitle = (TextView) findViewById(R.id.page_title);
         pageTitle.setText("Burger");
+
     }
 
     @Override

@@ -33,7 +33,6 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         drawerLayout = findViewById(R.id.drawer);
-
         recyclerView = findViewById(R.id.menuRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(MenuActivity.this));
 
@@ -59,4 +58,3 @@ public class MenuActivity extends AppCompatActivity {
         mainAdapter.stopListening();
     }
 }
-

@@ -1,23 +1,21 @@
 package com.example.darpafoodordering;
 
-public class MenuHelperClass {
-    String name;
-    String price;
-    String image;
-    String category;
-    String productId;
+public class CartHelperClass {
+    private String name, price, quantity, image;
 
-    public MenuHelperClass(String name, String price, String image, String Category) {
+    public CartHelperClass() {
+    }
+
+    public CartHelperClass(String name, String price, String quantity, String image) {
         this.name = name;
         this.price = price;
+        this.quantity = quantity;
         this.image = image;
-        this.category = category;
     }
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -30,6 +28,13 @@ public class MenuHelperClass {
         this.price = price;
     }
 
+    public String getQuantity() {
+        return quantity;
+    }
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     public String getImage() {
         return image;
     }
@@ -38,15 +43,4 @@ public class MenuHelperClass {
         this.image = image;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    MenuHelperClass(){
-
-    }
 }

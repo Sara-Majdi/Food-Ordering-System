@@ -1,8 +1,12 @@
 package com.example.darpafoodordering;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MenuAdapterNew extends FirebaseRecyclerAdapter<MenuHelperClass,MenuAdapterNew.viewHolder>{
-
 
     /**
      * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
@@ -35,9 +38,19 @@ public class MenuAdapterNew extends FirebaseRecyclerAdapter<MenuHelperClass,Menu
                 .load(model.getImage())
                 .error(R.drawable.foodhome)
                 .into(holder.image);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(view.getContext(),ItemDetailsActivity.class);
+                intent.putExtra("name", model.getName());
+                view.getContext().startActivity(intent);
+            }
+        });
+
+
     }
-
-
 
     @NonNull
     @Override
